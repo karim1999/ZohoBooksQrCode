@@ -41,6 +41,7 @@ var app = new Vue({
                 companyName: this.companyName,
             }
             this.importArray.push(qr)
+            this.$refs.closeModal2.click()
         },
         generate(){
             var data= this.importArray[this.currentIndex]

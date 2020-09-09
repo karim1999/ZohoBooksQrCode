@@ -21,7 +21,16 @@ li {
 }
 span.title {
     flex: 0;
-    min-width: 150px;
+    min-width: 70px;
+}
+.company-name {
+    font-size: 16px;
+}
+.qr_value{
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 3px;
+    margin: 5px;
 }
 span.value {
     flex: 1;
@@ -29,4 +38,7 @@ span.value {
 }
 div, canvas, span {
     break-inside: avoid-page;
+}
+button {
+    margin-right: 10px;
 }
