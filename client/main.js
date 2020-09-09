@@ -46,8 +46,10 @@ var app = new Vue({
             var data= this.importArray[this.currentIndex]
             this.qrList= []
             for (var i= 0; i < this.qrNumber; i++){
-                data.qrValue= Math.round(Math.random()*8999999) + 1000000
-                this.qrList.push(data)
+                var tempData= Object.assign({}, data)
+                tempData.qrValue= Math.round(Math.random()*8999999) + 1000000
+                console.log(tempData.qrValue)
+                this.qrList.push(tempData)
             }
             this.$refs.closeModal.click()
         },

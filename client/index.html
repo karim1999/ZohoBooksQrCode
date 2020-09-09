@@ -89,7 +89,12 @@
         </div>
         <div id="qr_container">
             <div class="row qr_element" v-for="(qr, index) in qrList" :key="index">
-                <qrcode :value="qr.qrValue" :options="{ width: 250 }"></qrcode>
+                <div style="margin-right: 20px">
+                    <qrcode :value="qr.qrValue" :options="{ width: 160, margin: 0 }"></qrcode>
+                    <li v-if="qr.qrValue">
+                        <span> {{ qr.qrValue }}</span>
+                    </li>
+                </div>
                 <div class="details">
                     <li v-if="qr.companyName">
                         <span class="title">Company Name: </span><span class="value">{{ qr.companyName }}</span>
