@@ -1,0 +1,32 @@
+/* LET THE STYLING BEGIN */
+#app {
+}
+.qr_container{
+}
+.qr_element {
+    margin-top: 20px;
+    justify-content: center;
+}
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 3px;
+}
+span.title {
+    flex: 0;
+    min-width: 150px;
+}
+span.value {
+    flex: 1;
+    font-weight: bold;
+}
+div, canvas, span {
+    break-inside: avoid-page;
+}

@@ -1,0 +1,35 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": 1610000000016001,
+      "name": "ZohoBooksQrCode",
+      "domain": {
+        "id": 10022040355,
+        "name": "zohobooksqrcode-716728598.development"
+      },
+      "env": [
+        {
+          "idx": 1,
+          "id": "716728598",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ],
+  "migration": {
+    "1.0.2": {
+      "completed": true
+    },
+    "last_success": "1.0.2"
+  }
+}

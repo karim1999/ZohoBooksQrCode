@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "targets": [
+      "zoho_books_qr_code_function"
+    ],
+    "ignore": [],
+    "source": "functions"
+  },
+  "client": {
+    "source": "client"
+  }
+}

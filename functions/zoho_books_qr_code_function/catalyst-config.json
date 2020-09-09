@@ -1,0 +1,10 @@
+{
+	"deployment": {
+		"name": "zoho_books_qr_code_function",
+		"stack": "node10",
+		"type": "advancedio"
+	},
+	"execution": {
+		"main": "index.js"
+	}
+}

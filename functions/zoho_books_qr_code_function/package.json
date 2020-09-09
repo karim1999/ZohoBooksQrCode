@@ -1,0 +1,9 @@
+{
+	"name": "zoho_books_qr_code_function",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "admin@cloudgear.in",
+	"dependencies": {
+		"zcatalyst-sdk-node": "latest"
+	}
+}
