@@ -1,12 +1,17 @@
 /* LET THE STYLING BEGIN */
 #app {
 }
-.qr_container{
+#qr_container{
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
 }
 .qr_element {
     margin-top: 40px;
     justify-content: center;
     flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    /*margin-right: 50px;*/
 }
 .details {
     display: flex;
@@ -38,7 +43,7 @@ span.value {
     font-weight: bold;
     word-break: break-all;
 }
-div, canvas, span {
+div, canvas, span, img {
     break-inside: avoid-page;
 }
 button {

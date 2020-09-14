@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/app/main.css" />
+    <title>QR Codes</title>
+</head>
+<body>
+<div id="app">
+    <button v-if="!isPrinting" @click="printList">Print</button>
+    <div id="qr_container">
+        <div class="row qr_element" v-for="(qr, index) in qrList" :key="index">
+            <li class="qr_value" v-if="qr.qrValue">
+                <span> {{ qr.qrValue }}</span>
+            </li>
+            <div style="margin-right: 20px">
+                <qrcode :value="qr.qrValue" :options="{ width: 160, margin: 0 }"></qrcode>
+            </div>
+            <div class="details">
+                <li v-if="qr.companyName">
+                    <!--                                                <span class="title">Company Name: </span>-->
+                    <span class="value company-name">{{ qr.companyName }}</span>
+                </li>
+                <li v-if="qr.productName">
+                    <!--                                                <span class="title">Product Name: </span>-->
+                    <span class="value">{{ qr.productName }}</span>
+                </li>
+                <li v-if="qr.GTIN">
+                    <span class="title">GTIN: </span><span class="value">{{ qr.GTIN }}</span>
+                </li>
+                <li v-if="qr.EXPIRY">
+                    <span class="title">EXPIRY: </span><span class="value">{{ qr.EXPIRY }}</span>
+                </li>
+                <li v-if="qr.BATCH">
+                    <span class="title">BATCH: </span><span class="value">{{ qr.BATCH }}</span>
+                </li>
+                <li v-if="qr.SN">
+                    <span class="title">SN: </span><span class="value">{{ qr.SN }}</span>
+                </li>
+                <li v-if="qr.location">
+                    <span class="title">Location: </span><span class="value">{{ qr.location }}</span>
+                </li>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+<script src="/app/qr.js"></script>
+<script>
+    Vue.component(VueQrcode.name, VueQrcode);
+</script>
+<script src="/app/generate.js"></script>
+</body>
+</html>

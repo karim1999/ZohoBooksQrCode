@@ -26,6 +26,15 @@ var app = new Vue({
     },
     mounted(){
     },
+    computed: {
+        qrLink(){
+            var data= this.importArray[this.currentIndex]
+            if(data){
+                return "/app/generate.html?qrNumber="+ this.qrNumber +"&GTIN="+ data.GTIN +"&EXPIRY="+ data.EXPIRY +"&BATCH="+ data.BATCH +"&SN="+ data.SN +"&location="+ data.location +"&productName="+ data.productName
+            }
+            return null
+        }
+    },
     methods: {
         setCurrentIndex(index){
             this.currentIndex= index
@@ -44,16 +53,16 @@ var app = new Vue({
             this.$refs.closeModal2.click()
         },
         generate(){
-            var data= this.importArray[this.currentIndex]
-            this.qrList= []
-            for (var i= 0; i < this.qrNumber; i++){
-                var tempData= Object.assign({}, data)
-                tempData.qrValue= Math.round(Math.random()*8999999) + 1000000
-                console.log(tempData.qrValue)
-                this.qrList.push(tempData)
-            }
+            // var data= this.importArray[this.currentIndex]
+            // this.qrList= []
+            // for (var i= 0; i < this.qrNumber; i++){
+            //     var tempData= Object.assign({}, data)
+            //     tempData.qrValue= Math.round(Math.random()*8999999) + 1000000
+            //     console.log(tempData.qrValue)
+            //     this.qrList.push(tempData)
+            // }
             this.$refs.closeModal.click()
-            this.$refs.qrModalButton.click()
+            this.$refs.qrLink.click()
         },
         printList(){
             this.isPrinting= true
