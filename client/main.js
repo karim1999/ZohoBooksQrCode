@@ -53,12 +53,14 @@ var app = new Vue({
                 this.qrList.push(tempData)
             }
             this.$refs.closeModal.click()
+            this.$refs.qrModalButton.click()
         },
         printList(){
             this.isPrinting= true
             setTimeout(() => {
                 window.print();
                 this.isPrinting= false
+                this.$refs.closeQrModal.click()
             }, 1000)
         },
         importFile(event){

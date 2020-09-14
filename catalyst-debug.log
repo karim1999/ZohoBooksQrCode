@@ -1,0 +1,35 @@
+[debug] [2020-09-14T16:03:41.183Z] : 
+[debug] [2020-09-14T16:03:41.184Z] : ----------------------------------------------------------------------
+[debug] [2020-09-14T16:03:41.184Z] : Command:      C:\Program Files\nodejs\node.exe C:\Users\karim\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js serve
+[debug] [2020-09-14T16:03:41.184Z] : CLI Version:  1.0.4
+[debug] [2020-09-14T16:03:41.184Z] : Platform:     win32
+[debug] [2020-09-14T16:03:41.184Z] : Node Version: v10.19.0
+[debug] [2020-09-14T16:03:41.185Z] : Time:         Mon Sep 14 2020 18:03:41 GMT+0200 (Eastern European Standard Time)
+[debug] [2020-09-14T16:03:41.185Z] : ----------------------------------------------------------------------
+[debug] [2020-09-14T16:03:41.185Z] : 
+[debug] [2020-09-14T16:03:41.681Z] : > authorizing via signed-in user option
+[debug] [2020-09-14T16:03:41.681Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.functions.ALL","ZohoCatalyst.functions.EXECUTE","ZohoCatalyst.webapp.ALL"]
+[debug] [2020-09-14T16:03:41.693Z] : > refreshing access token <
+[debug] [2020-09-14T16:03:41.693Z] : >>>> HTTP REQUEST : POST https://accounts.zoho.com/oauth/v2/token 
+<request body omitted>
+
+[debug] [2020-09-14T16:03:42.588Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 14 Sep 2020 16:03:42 GMT","content-type":"application/json;charset=UTF-8","content-length":"194","connection":"close","set-cookie":["b266a5bf57=dcb92d0f99dd7421201f8dc746d54606; Path=/","iamcsr=2ae77ca3-4d28-45cd-a108-41af3bac8ebe;path=/;SameSite=None;Secure;priority=high","_zcsr_tmp=2ae77ca3-4d28-45cd-a108-41af3bac8ebe;path=/;SameSite=Strict;Secure;priority=high"],"x-content-type-options":"nosniff","x-xss-protection":"1","x-frame-options":"SAMEORIGIN","content-language":"en-US","strict-transport-security":"max-age=63072000"}
+
+[debug] [2020-09-14T16:03:42.597Z] : >>>> HTTP REQUEST : GET https://catalyst.zoho.com/baas/v1/project/1610000000016001 
+
+[debug] [2020-09-14T16:03:43.498Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 14 Sep 2020 16:03:43 GMT","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","connection":"close","set-cookie":["46512fd555=014ce485bf2cf2299de0faf2fad1caf1; Path=/","ZD_CSRF_TOKEN=39081b02-9a15-465e-bf55-352b7ac3a728;path=/;SameSite=None;Secure;priority=high"],"x-content-type-options":"nosniff","x-xss-protection":"1","pragma":"no-cache","cache-control":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","vary":"accept-encoding","strict-transport-security":"max-age=63072000"}
+
+[debug] [2020-09-14T16:03:43.499Z] : >>>> HTTP REQUEST : GET https://catalyst.zoho.com/baas/v1/project/1610000000016001/environment 
+
+[debug] [2020-09-14T16:03:44.157Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 14 Sep 2020 16:03:44 GMT","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","connection":"close","set-cookie":["46512fd555=bbdfb771565421abbe10f7a180903d28; Path=/","ZD_CSRF_TOKEN=089f4ba8-4f44-4ef1-8ea5-b17e6d299b56;path=/;SameSite=None;Secure;priority=high"],"x-content-type-options":"nosniff","x-xss-protection":"1","pragma":"no-cache","cache-control":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","vary":"accept-encoding","strict-transport-security":"max-age=63072000"}
+
+[debug] [2020-09-14T16:03:44.158Z] : migration in process
+[debug] [2020-09-14T16:03:44.158Z] : migration completed
+[debug] [2020-09-14T16:03:44.370Z] : http port : '3000' is not available. Hence port '3001' will be used instead.
+[info] [2020-09-14T16:03:44.372Z] : i functions[zoho_books_qr_code_function]: URL : http://localhost:3000/server/zoho_books_qr_code_function/
+[info] [2020-09-14T16:03:44.373Z] : 
+[info] [2020-09-14T16:03:44.387Z] : i client[qrCodeClient]: URL : http://localhost:3000/app/
+[info] [2020-09-14T16:03:44.387Z] : 

@@ -6,6 +6,7 @@
 .qr_element {
     margin-top: 40px;
     justify-content: center;
+    flex-wrap: nowrap;
 }
 .details {
     display: flex;
@@ -35,10 +36,17 @@ span.title {
 span.value {
     flex: 1;
     font-weight: bold;
+    word-break: break-all;
 }
 div, canvas, span {
     break-inside: avoid-page;
 }
 button {
     margin-right: 10px;
+}
+.modal-backdrop.show {
+    opacity: 0;
+}
+.modal {
+    overflow-y: auto;
 }
