@@ -2,52 +2,133 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/app/main.css" />
     <title>QR Codes</title>
 </head>
 <body>
 <div id="app">
-    <button v-if="!isPrinting" @click="printList">Print</button>
-    <div id="qr_container">
-        <div class="row qr_element" v-for="(qr, index) in qrList" :key="index">
-            <li class="qr_value" v-if="qr.qrValue">
-                <span> {{ qr.qrValue }}</span>
-            </li>
-            <div style="margin-right: 20px">
-                <qrcode :value="qr.qrValue" :options="{ width: 160, margin: 0 }"></qrcode>
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm ">
+        <div class="container justify-content-between">
+            <a class="navbar-brand" href="/">
+                Qr Code Generator
+            </a>
+        </div>
+    </nav>
+
+    <main class="py-4">
+        <div class="container" id="content">
+            <div class="row justify-content-center no-print">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Product Info
+<!--                            <button type="button" class="btn btn-sm btn-primary float-right">Save & Generate</button>-->
+                        </div>
+                        <div class="card-body">
+                            <form @submit.prevent="saveItem" class="col">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>SN</label>
+                                        <input required v-model="item.sn" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Product Name</label>
+                                        <input disabled v-model="item.product_name" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>GTIN</label>
+                                        <input required v-model="item.gtin" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Batch Number</label>
+                                        <input required v-model="item.batch" type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Location</label>
+                                        <input required v-model="item.location" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Expiry Date</label>
+                                        <input required v-model="item.expiry" type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Number of QR Codes</label>
+                                        <input required v-model="qrNumber" type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save & Generate</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="details">
-                <li v-if="qr.companyName">
-                    <!--                                                <span class="title">Company Name: </span>-->
-                    <span class="value company-name">{{ qr.companyName }}</span>
-                </li>
-                <li v-if="qr.productName">
-                    <!--                                                <span class="title">Product Name: </span>-->
-                    <span class="value">{{ qr.productName }}</span>
-                </li>
-                <li v-if="qr.GTIN">
-                    <span class="title">GTIN: </span><span class="value">{{ qr.GTIN }}</span>
-                </li>
-                <li v-if="qr.EXPIRY">
-                    <span class="title">EXPIRY: </span><span class="value">{{ qr.EXPIRY }}</span>
-                </li>
-                <li v-if="qr.BATCH">
-                    <span class="title">BATCH: </span><span class="value">{{ qr.BATCH }}</span>
-                </li>
-                <li v-if="qr.SN">
-                    <span class="title">SN: </span><span class="value">{{ qr.SN }}</span>
-                </li>
-                <li v-if="qr.location">
-                    <span class="title">Location: </span><span class="value">{{ qr.location }}</span>
-                </li>
+            <div class="row justify-content-center" style="margin-top: 20px">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Generated Qr Codes
+                            <button type="button" class="btn btn-sm btn-primary float-right" v-if="!isPrinting" @click="printList">Print</button>
+                        </div>
+                        <div class="card-body">
+                            <div id="qr_container" v-if="item.codes">
+                                <div class="row qr_element" v-for="(qr, index) in item.codes" :key="index">
+                                    <li class="qr_value" v-if="qr.qrcodes.qrvalue">
+                                        <span> {{ qr.qrcodes.qrvalue }}</span>
+                                    </li>
+                                    <div style="margin-right: 20px">
+                                        <qrcode :value="qr.qrcodes.qrvalue" :options="{ width: 190, margin: 0 }"></qrcode>
+                                    </div>
+                                    <div class="details">
+                                        <li v-if="companyName">
+                                            <span class="value company-name">{{ companyName }}</span>
+                                        </li>
+                                        <li v-if="item.product_name">
+                                            <span class="value">{{ item.product_name }}</span>
+                                        </li>
+                                        <li v-if="item.gtin">
+                                            <span class="title">GTIN: </span><span class="value">{{ item.gtin }}</span>
+                                        </li>
+                                        <li v-if="item.expiry">
+                                            <span class="title">EXPIRY: </span><span class="value">{{ item.expiry }}</span>
+                                        </li>
+                                        <li v-if="item.batch">
+                                            <span class="title">BATCH: </span><span class="value">{{ item.batch }}</span>
+                                        </li>
+                                        <li v-if="item.sn">
+                                            <span class="title">SN: </span><span class="value">{{ item.sn }}</span>
+                                        </li>
+                                        <li v-if="item.location">
+                                            <span class="title">Location: </span><span class="value">{{ item.location }}</span>
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+
+    <loading :active.sync="isLoading" :can-cancel="false"></loading>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
 <script src="/app/qr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3"></script>
+<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3/dist/vue-loading.css" rel="stylesheet">
+<!-- Init the plugin and component-->
 <script>
+    Vue.use(VueLoading);
+    Vue.component('loading', VueLoading)
     Vue.component(VueQrcode.name, VueQrcode);
 </script>
 <script src="/app/generate.js"></script>

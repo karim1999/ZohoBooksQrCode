@@ -1,17 +1,19 @@
-'use strict';
+const app = require('express')();
+const bodyParser = require('body-parser');
 
-module.exports = async (req, res) => {
-	var url = req.url;
-
-	switch (url) {
-		case '/':
-			res.writeHead(200);
-			res.write('done');
-			break;
-		default:
-			res.writeHead(404);
-			res.write('You might find the page you are looking for at "/" path');
-			break;
+app.use(function(req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+	res.header('Access-Control-Allow-Headers', 'Content-type,Accept,x-access-token,X-Key');
+	if (req.method == 'OPTIONS') {
+		res.status(200).end();
+	} else {
+		next();
 	}
-	res.end();
-};
+});
+
+app.use(bodyParser.json());
+
+require('./routers/index')(app);
+
+module.exports = app;
