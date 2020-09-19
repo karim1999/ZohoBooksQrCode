@@ -73,11 +73,12 @@ var app = new Vue({
         generate(num){
             this.isLoading= true
             let qrList= []
+            let temp_qrValue= Math.round(Math.random()*8999999) + 1000000
             for (var i= 0; i < num; i++){
                 var tempData= {
                     item_id: this.item.item_id
                 }
-                tempData.qrvalue= Math.round(Math.random()*8999999) + 1000000
+                tempData.qrvalue= temp_qrValue
                 qrList.push(tempData)
             }
             axios.post(Constants.url.codes, {

@@ -1,0 +1,37 @@
+[debug] [2020-09-19T12:02:57.705Z] : 
+[debug] [2020-09-19T12:02:57.707Z] : ----------------------------------------------------------------------
+[debug] [2020-09-19T12:02:57.707Z] : Command:      C:\Program Files\nodejs\node.exe C:\Users\karim\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js deploy
+[debug] [2020-09-19T12:02:57.707Z] : CLI Version:  1.0.4
+[debug] [2020-09-19T12:02:57.707Z] : Platform:     win32
+[debug] [2020-09-19T12:02:57.707Z] : Node Version: v10.19.0
+[debug] [2020-09-19T12:02:57.708Z] : Time:         Sat Sep 19 2020 14:02:57 GMT+0200 (Eastern European Standard Time)
+[debug] [2020-09-19T12:02:57.708Z] : ----------------------------------------------------------------------
+[debug] [2020-09-19T12:02:57.708Z] : 
+[debug] [2020-09-19T12:02:58.445Z] : > authorizing via signed-in user option
+[debug] [2020-09-19T12:02:58.445Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.functions.ALL","ZohoCatalyst.webapp.ALL"]
+[debug] [2020-09-19T12:02:58.458Z] : > refreshing access token <
+[debug] [2020-09-19T12:02:58.458Z] : >>>> HTTP REQUEST : POST https://accounts.zoho.com/oauth/v2/token 
+<request body omitted>
+
+[debug] [2020-09-19T12:02:59.543Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Sat, 19 Sep 2020 12:03:00 GMT","content-type":"application/json;charset=UTF-8","content-length":"194","connection":"close","set-cookie":["b266a5bf57=57c7a14afabcac9a0b9dfc64b3542b70; Path=/","iamcsr=47423730-e7bd-43b5-85d5-951318d0679d;path=/;SameSite=None;Secure;priority=high","_zcsr_tmp=47423730-e7bd-43b5-85d5-951318d0679d;path=/;SameSite=Strict;Secure;priority=high"],"x-content-type-options":"nosniff","x-xss-protection":"1","x-frame-options":"SAMEORIGIN","content-language":"en-US","strict-transport-security":"max-age=63072000"}
+
+[debug] [2020-09-19T12:02:59.551Z] : >>>> HTTP REQUEST : GET https://catalyst.zoho.com/baas/v1/project/1610000000016001 
+
+[debug] [2020-09-19T12:03:00.607Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Sat, 19 Sep 2020 12:03:01 GMT","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","connection":"close","set-cookie":["46512fd555=014ce485bf2cf2299de0faf2fad1caf1; Path=/","ZD_CSRF_TOKEN=270dd2b0-590f-418b-91d0-94a2df46623f;path=/;SameSite=None;Secure;priority=high"],"x-content-type-options":"nosniff","x-xss-protection":"1","pragma":"no-cache","cache-control":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","vary":"accept-encoding","strict-transport-security":"max-age=63072000"}
+
+[debug] [2020-09-19T12:03:00.608Z] : >>>> HTTP REQUEST : GET https://catalyst.zoho.com/baas/v1/project/1610000000016001/environment 
+
+[debug] [2020-09-19T12:03:01.318Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Sat, 19 Sep 2020 12:03:02 GMT","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","connection":"close","set-cookie":["46512fd555=014ce485bf2cf2299de0faf2fad1caf1; Path=/","ZD_CSRF_TOKEN=e158fe14-94aa-45e1-839b-fffb4939bf94;path=/;SameSite=None;Secure;priority=high"],"x-content-type-options":"nosniff","x-xss-protection":"1","pragma":"no-cache","cache-control":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","vary":"accept-encoding","strict-transport-security":"max-age=63072000"}
+
+[debug] [2020-09-19T12:03:01.320Z] : migration in process
+[debug] [2020-09-19T12:03:01.320Z] : migration completed
+[debug] [2020-09-19T12:03:02.009Z] : >>>> HTTP REQUEST : PUT https://catalyst.zoho.com/baas/v1/project/1610000000016001/server/upsert 
+
+[debug] [2020-09-19T12:03:07.284Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Sat, 19 Sep 2020 12:03:07 GMT","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","connection":"close","set-cookie":["46512fd555=63dd9cf89a6678b816d9580ec827ee61; Path=/","ZD_CSRF_TOKEN=9420bc82-9b81-415d-9b8a-92c6b54e2066;path=/;SameSite=None;Secure;priority=high"],"x-content-type-options":"nosniff","x-xss-protection":"1","pragma":"no-cache","cache-control":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","vary":"accept-encoding","strict-transport-security":"max-age=63072000"}
+
+[debug] [2020-09-19T12:03:08.263Z] : >>>> HTTP REQUEST : POST https://catalyst.zoho.com/baas/v1/project/1610000000016001/webapp 
+
