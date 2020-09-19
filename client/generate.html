@@ -80,10 +80,10 @@
                             <div id="qr_container" v-if="item.codes">
                                 <div class="row qr_element" v-for="(qr, index) in item.codes" :key="index">
                                     <li class="qr_value" v-if="qr.qrcodes.qrvalue">
-                                        <span> {{ qr.qrcodes.qrvalue }}</span>
+                                        <span> {{ item.qr_code }}</span>
                                     </li>
                                     <div style="margin-right: 20px">
-                                        <qrcode :value="qr.qrcodes.qrvalue" :options="{ width: 190, margin: 0 }"></qrcode>
+                                        <qrcode :value="item.qr_code" :options="{ width: 190, margin: 0 }"></qrcode>
                                     </div>
                                     <div class="details">
                                         <li v-if="companyName">

@@ -25,6 +25,7 @@ var app = new Vue({
             expiry: "",
             product_name: "",
             sn: "",
+            qr_code: ""
         }
     },
     created()
@@ -73,7 +74,7 @@ var app = new Vue({
         generate(num){
             this.isLoading= true
             let qrList= []
-            let temp_qrValue= Math.round(Math.random()*8999999) + 1000000
+            let temp_qrValue= this.item.qr_code
             for (var i= 0; i < num; i++){
                 var tempData= {
                     item_id: this.item.item_id
@@ -102,6 +103,8 @@ var app = new Vue({
         saveItem(){
             this.isLoading= true
             var itemData= {...this.item, codes: undefined}
+            if(!itemData.qr_code)
+                itemData.qr_code= Math.round(Math.random()*8999999) + 1000000
             axios.post(Constants.url.item, {
                 item: itemData
             }).then(res => {
