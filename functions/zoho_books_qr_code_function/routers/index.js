@@ -22,11 +22,13 @@ module.exports = (app) => {
 	app.post('/item', async (req, res) => {
 		const capp = catalyst.initialize(req);
 		const item = req.body.item;
+
 		let finalItem= {};
 		if(item.ROWID){
 			finalItem= await helper.update.item(capp, item);
 		}else{
 			finalItem= await helper.insert.item(capp, item);
+			await helper.update.zohoItem(item);
 		}
 		return res.status(200).json({
 			item: finalItem
