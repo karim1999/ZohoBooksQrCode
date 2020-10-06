@@ -104,7 +104,7 @@ var app = new Vue({
             this.isLoading= true
             var itemData= {...this.item, codes: undefined}
             if(!itemData.qr_code)
-                itemData.qr_code= Math.round(Math.random()*8999999) + 1000000
+                itemData.qr_code= Math.round(Math.random()*89999999) + 10000000
             axios.post(Constants.url.item, {
                 item: itemData
             }).then(res => {
